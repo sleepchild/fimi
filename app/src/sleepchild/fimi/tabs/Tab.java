@@ -10,6 +10,7 @@ import sleepchild.fimi.adapters.*;
 import sleepchild.fimi.*;
 import sleepchild.fimi.menusanddlgs.*;
 import sleepchild.fimi.utils.*;
+import android.graphics.drawable.*;
 
 public class Tab implements
     FileItemAdapter.OnFileItemClickListener
@@ -41,7 +42,8 @@ public class Tab implements
         adaptor = new FileItemAdapter(act, this);
         list1 = (ListView) tabview.findViewById(R.id.tabview_list1);
         list1.setAdapter(adaptor);
-        
+        list1.setDividerHeight(0);
+        //list1.setDivider(null);
         list1.setOnScrollListener(new AbsListView.OnScrollListener(){
             @Override
             public void onScrollStateChanged(AbsListView p1, int scrollstate)
@@ -59,6 +61,7 @@ public class Tab implements
                 // TODO: Implement this method
             }
         });
+        
         //
         //mgr.addTabEventsListener(this);
         dir = new MFile(Utils.DEFAULT_START_PATH);
@@ -172,6 +175,7 @@ public class Tab implements
         ThemeManager.Theme t = ThemeManager.getTheme();
         tabview.findViewById(R.id.tabview_header).setBackgroundColor(t.header_bg);
         dirname.setTextColor(t.header_text);
+        //list1.setDivider(new ColorDrawable(t.dividers));
        // reload();
       // BitmapUtils.tintIV(tabview, R.id.tabview_vmore, R.drawable.ic_bmore, t.icon);
     }  

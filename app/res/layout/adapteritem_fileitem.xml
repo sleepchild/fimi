@@ -3,7 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dddddd"
+        android:gravity="center_vertical"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -11,6 +18,8 @@
         android:layout_height="wrap_content"
         android:minHeight="40dp"
         android:gravity="center_vertical">
+        
+        
 
         <LinearLayout
             android:orientation="vertical"

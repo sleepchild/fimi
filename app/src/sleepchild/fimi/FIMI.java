@@ -5,6 +5,7 @@ import android.graphics.drawable.*;
 import android.content.*;
 import android.graphics.*;
 import android.os.*;
+import sleepchild.fimi.io.*;
 
 public class FIMI
 {
@@ -153,6 +154,57 @@ public class FIMI
             }
         }
         return false;
+    }
+    
+    public static void copyFile(String frompath, String topath){
+        FileInputStream in = null;
+        FileOutputStream out = null;
+        new File(topath).getParentFile().mkdirs();
+        Buffer buffer = new Buffer();
+        
+        try
+        {
+            byte[] bt = new byte[1024];
+            
+            in = new FileInputStream(frompath);
+            out = new FileOutputStream(topath);
+            
+            int red=0;
+            while((red = in.read(bt)) != -1 ){
+                //buffer.put(bt, red);
+                out.write(bt);
+            }
+            
+            //out.write(buffer.array());
+            out.flush();
+            
+            
+        }catch (FileNotFoundException e){}
+        catch(IOException ioe){}
+        finally{
+            if(in!=null){
+                try{
+                    in.close();
+                }catch (IOException e){}
+            }
+            if(out!=null){
+                try{
+                    out.close();
+                }catch (IOException e){}
+            }
+        }
+        
+
+    }
+    
+    public static boolean moveFile(String fromPath, String toPath){
+        new File(toPath).getParentFile().mkdirs();
+        if(!new File(fromPath).exists()){
+            return false;
+        }
+        
+        return new File(fromPath).renameTo(new File(toPath));
+        
     }
     
     public static interface ValueCallback{

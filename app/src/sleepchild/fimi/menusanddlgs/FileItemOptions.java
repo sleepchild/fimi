@@ -59,10 +59,14 @@ public class FileItemOptions extends MDialog
         switch(tag){
             case itm.COPY:
                 //
-                act.showPicker();
+                //act.showPicker();
+                FIMI.copyFile(file.getAbsolutePath(), "/sdcard/.sleepchild/fimi/testcopy/"+file.getName());
+                act.toast("file copied");
                 break;
             case itm.MOVE:
-                //
+                FIMI.moveFile(file.getAbsolutePath(), "/sdcard/.sleepchild/fimi/testcopy/"+file.getName());
+                act.toast("file moved");
+                tab.reload();
                 break;
             case itm.OPEN_NEW_TAB:
                 act.getTabManager().newTab(file.getAbsolutePath());

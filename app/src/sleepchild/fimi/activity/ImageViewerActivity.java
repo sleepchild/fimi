@@ -43,7 +43,8 @@ public class ImageViewerActivity extends BaseActivity
         if(str.startsWith("file://")){
             ret = str.substring(7);
         }
-        ret = ret.replace("%20"," ");
+        ret = ret.replace("%20"," ").replace("%26","&");
+        
         return ret;
     }
     
@@ -54,7 +55,8 @@ public class ImageViewerActivity extends BaseActivity
         Imgur.getImage(path, new Imgur.ResultCallback(){
             public void onResult(Bitmap bmp){
                 if(bmp==null){
-                    toast("error: bmp==null");
+                    toast("error: bmp==null;; "+mPath);
+                    finish();
                     return;
                 }
                 ivey.setImageBitmap(bmp);
