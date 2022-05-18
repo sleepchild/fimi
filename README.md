@@ -1,2 +1,0 @@
-# fimi
-tabbed file manager
