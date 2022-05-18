@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#0E195D</color>
+    <color name="primaryDark">#000000</color>
+    <color name="accent">#A22CE3</color>
+    
+    <color name="background">#ffffff</color>
+    
+    <color name="b015">#0E195D</color>
+    
+    <color name="hline">#dcdcdc</color>
+    
+    <color name="currentTabBg">#000000</color>
+    <color name="currentTabText">#ffffff</color>
+    
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fx="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/tabview_header"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:background="@color/primary">
+
+        <TextView
+            android:id="@+id/tabview_dirname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sdcard"
+            android:textSize="14sp"
+            android:textColor="#ffffff"
+            android:singleLine="true"
+            android:ellipsize="start"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dddddd"/>
+    
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0">
+
+        <!--files list view-->
+        <sleepchild.view.FastScrollListView
+            android:id="@+id/tabview_list1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    
+    </LinearLayout>
+
+    <!--horizontal lune--> 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/hline"/>
+
+</LinearLayout>
+
+

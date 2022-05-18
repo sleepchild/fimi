@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NavBarItem">
+        <attr name="iconSize" format="dimension"/>
+        <attr name="icon" format="reference"/>
+        <attr name="action" format="string"/>
+        <attr name="isButton" format="boolean" />
+        <attr name="text" format="string" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+</resources>

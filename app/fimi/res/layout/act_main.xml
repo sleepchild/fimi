@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:fx="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/main_act_tabholder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"/>
+
+        <LinearLayout
+            android:id="@+id/act_main_navbar"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical">
+
+            <sleepchild.view.NavItem
+                android:id="@+id/bottom_nav_show_drawer"
+                fx:icon="@drawable/ic_menu"
+                fx:iconSize="22dp"
+                android:background="#50C7C7D2"
+                android:orientation="vertical"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:tag="hspace"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1.0"/>
+
+            <sleepchild.view.NavItem
+                android:id="@+id/bottom_nav_task"
+                fx:icon="@drawable/ic_task"
+                fx:iconSize="22dp"
+                android:orientation="vertical"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"/>
+
+            <sleepchild.view.NavItem
+                android:id="@+id/bottom_nav_search"
+                fx:icon="@drawable/ic_search"
+                fx:iconSize="22dp"
+                android:orientation="vertical"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"/>
+
+            
+            <RelativeLayout
+                android:id="@+id/bottom_nav_pickertoggle"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:clickable="false"
+                    android:id="@+id/t1"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_tabloid"
+                    android:scaleType="fitXY"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+
+                <TextView
+                    android:clickable="false"
+                    android:id="@+id/bottom_nav_tvtabcounter_text"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:text="100"/>
+
+            </RelativeLayout>
+
+            <sleepchild.view.NavItem
+                android:id="@+id/bottom_nav_showmenu"
+                fx:icon="@drawable/ic_bmore_2"
+                fx:iconSize="28dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical"
+                android:layout_width="40dp"
+                android:layout_height="35dp"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</RelativeLayout>
+
+

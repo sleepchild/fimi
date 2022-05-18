@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="fill_parent"
+        android:minWidth="170dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:background="#ffffff"
+            android:text="new tab"
+            android:id="@+id/taboptionsmenu_newtab"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/taboptionsmenu_closetab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:background="#ffffff"
+            android:text="close tab"
+            android:padding="10dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dddddd"/>
+
+        <TextView
+            android:id="@+id/taboptionsmenu_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:text="settings"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/taboptionsmenu_exitapp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="16sp"
+            android:textColor="#8E2922"
+            android:text="exit"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+

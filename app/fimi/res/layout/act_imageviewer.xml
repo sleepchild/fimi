@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dddddd">
+
+    <sleepchild.view.TouchImageView
+        android:id="@+id/imageviewer_ivey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/imageviewerdlg_pi"
+            android:orientation="vertical"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:background="@drawable/ic_chev_left"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imageviewerdlg_ni"
+            android:orientation="vertical"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:rotation="180"
+                android:background="@drawable/ic_chev_left"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/imageviewerdlg_tvtotal"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/> 
+    
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/loader"/>
+
+</RelativeLayout>
+
+
+

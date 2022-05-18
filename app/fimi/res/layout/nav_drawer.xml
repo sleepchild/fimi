@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <LinearLayout
+        android:id="@+id/nav_container"
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+        
+        <LinearLayout
+            android:id="@+id/navdrawer_header"
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@color/primary">
+            
+            <TextView
+                android:id="@+id/nav_drawer_tabdirname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sdcard"
+                android:padding="2dp"
+                android:textSize="14sp"
+                android:singleLine="true"
+                android:ellipsize="start"
+                android:textColor="#ffffff"/>
+
+            <TextView
+                android:id="@+id/nav_drawer_tabdirpath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="/sdcard"
+                android:padding="3dp"
+                android:textSize="12sp"
+                android:singleLine="true"
+                android:ellipsize="start"
+                android:textColor="#ffffff"/>
+                
+        </LinearLayout>
+        
+    </LinearLayout>
+</LinearLayout>
+
+

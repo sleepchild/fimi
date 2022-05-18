@@ -1,0 +1,18 @@
+<LinearLayout
+    android:id="@+id/customview_navbaritemRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:duplicateParentState="true"
+    android:layout_height="match_parent"
+    android:clickable="false"
+    android:gravity="center">
+
+    <ImageView
+        android:clickable="false"
+        android:id="@+id/customview_navbaritem_ImageView"
+        android:layout_width="24dp"
+        android:scaleType="fitXY"
+        android:layout_height="24dp"/>
+
+</LinearLayout>
