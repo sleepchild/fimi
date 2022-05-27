@@ -2,7 +2,7 @@ package sleepchild.fimi;
 import java.util.concurrent.*;
 import java.util.*;
 
-public class TaskMang
+public class TaskManager
 {
     ExecutorService worker;
     
@@ -14,7 +14,7 @@ public class TaskMang
     //List<Task> pendingTasksQueue = new ArrayList<>();
     //List<Task> completedTaskQueue = new ArrayList<>();
    
-    public TaskMang(){
+    public TaskManager(){
         worker = Executors.newFixedThreadPool(3);
         //
     }

@@ -9,7 +9,7 @@ import android.view.*;
 import android.content.*;
 import android.widget.*;
 
-public class BitmapUtils
+public class VUtils
 {
     private static class T{
         Bitmap bmp;
@@ -18,7 +18,7 @@ public class BitmapUtils
     }
 
     private static Map<Integer, T> cache = new HashMap<>();
-    private BitmapUtils(){}
+    private VUtils(){}
 
     private static Bitmap tint2(Bitmap src, int color){
         //Bitmap dest = cache.get(
@@ -68,5 +68,15 @@ public class BitmapUtils
         if(bmp!=null){
             ivey.setImageBitmap(bmp);
         }
+    }
+    public static void tintIV(View root, int resid, int color){
+        View v = root.findViewById(resid);
+        if(v instanceof ImageView){
+            tintIV((ImageView) v , color);
+        }
+    }
+    
+    public static void tintIV(ImageView v, int color){
+        v.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
 }

@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.widget.AbsListView.LayoutParams;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.Color;
+import sleepchild.fimi.*;
 
 public class TabPicker{
     MainActivity act;
@@ -55,6 +56,11 @@ public class TabPicker{
                     mListener.onTabPickerItemClosed(pos, tab);
                 }
                 adapter.update(act.getTabManager().getTabs());
+            }
+            
+            public void onTabPickerNewTab(){
+                act.getTabManager().newTab(Utils.DEFAULT_START_PATH);
+                close();
             }
         });
         list48.setAdapter(adapter);

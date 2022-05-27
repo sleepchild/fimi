@@ -19,6 +19,7 @@ public class FileItemAdapter extends BaseAdapter
     private LayoutInflater inflator;
     OnFileItemClickListener clickListener;
     Resources res;
+    boolean EMTY_DIR = false;
 
     public FileItemAdapter(MainActivity ctx, OnFileItemClickListener l){
         clickListener = l;
@@ -31,7 +32,13 @@ public class FileItemAdapter extends BaseAdapter
     }
 
     public void update(List<MFile> list){
+        EMTY_DIR = false;
         fileList = list;
+        
+        if(list.size()==0){
+            EMTY_DIR = true;
+            fileList.add(new MFile("empty"));
+        }
         notifyDataSetChanged();
     }
 
@@ -53,35 +60,56 @@ public class FileItemAdapter extends BaseAdapter
     //View v;
     @Override
     public View getView(final int pos, final View p2, ViewGroup p3){
-
+        
         ThemeManager.Theme tm = ThemeManager.getTheme();
+        
+        if(EMTY_DIR){
+            View ed = inflator.inflate(R.layout.emptyfolder, null);
+            ((TextView) ed.findViewById(R.id.emptyfolder_text)).setTextColor(tm.text);
+            return ed;
+        }
         
         final MFile fl = fileList.get(pos);
         final View v = inflator.inflate(R.layout.adapteritem_fileitem, null, false);
+        
+        if(pos==0){
+            v.findViewById(R.id.aifi_divider).setVisibility(View.GONE);
+        }
+        
         TextView title = (TextView) v.findViewById(R.id.adapteritem_fileitem_title);
         title.setText(fl.getName());
         title.setTextColor(tm.text);
         
         final ImageView icon = (ImageView) v.findViewById(R.id.adapteritem_fileitem_icon);
+        TextView zise = (TextView) v.findViewById(R.id.adapteritem_fileitem_size);
+        zise.setTextColor(tm.text);
         
         if(fl.isFile()){
-            TextView zise = (TextView) v.findViewById(R.id.adapteritem_fileitem_details);
-            String sp = Utils.formatSize(fl.length());
-            zise.setText(sp);
+            
+            zise.setText( Utils.formatSize(fl.length()) );
             zise.setTextColor(tm.text);
+            
+            TextView date = (TextView) v.findViewById(R.id.adapteritem_fileitem_date);
+            date.setText(Utils.formatDate(fl));
+            date.setTextColor(tm.text);
+            
             
             if(fl.isImageFile()){
                 Imgur.getThumbnail(fl.getAbsolutePath(), 120, 120, new Imgur.ResultCallback(){
                     public void onResult(Bitmap bmp){
                         if(bmp!=null){
-                            icon.setBackground(null);
+                            if(fl.getAbsolutePath().endsWith(".png")){
+                                icon.setBackgroundColor(Color.parseColor("#50cccccc"));
+                            }else{
+                                icon.setBackground(null);
+                            }
                             icon.setImageBitmap(bmp);
                         }
                     }
                 });
             }else{
                 int resid = FIMI.getIcon(fl);
-                Bitmap ic = BitmapUtils.tintResource(res, resid, tm.icon);
+                Bitmap ic = VUtils.tintResource(res, resid, tm.icon);
                 if(ic!=null){
                     icon.setImageBitmap(ic);
                 }else{
@@ -91,16 +119,18 @@ public class FileItemAdapter extends BaseAdapter
             }
             
         }else if(fl.isDirectory()){
-            Bitmap ic = BitmapUtils.tintResource(res, R.drawable.ic_folder, tm.icon);
+            Bitmap ic = VUtils.tintResource(res, R.drawable.ic_folder, tm.icon);
             if(ic!=null){
                 icon.setImageBitmap(ic);
             }else{
                 icon.setImageResource(R.drawable.ic_folder);
             }
+            zise.setText(Utils.getDirectoryInfo(fl));
+            
         }
         
         final ImageView icmore = (ImageView) v.findViewById(R.id.adapteritem_fileitem_vmore_icon);
-        Bitmap ic = BitmapUtils.tintResource(res, R.drawable.ic_bmore_2, tm.icon);
+        Bitmap ic = VUtils.tintResource(res, R.drawable.ic_bmore_2, tm.icon);
         if(ic!=null){
             icmore.setImageBitmap(ic);
         }else{
@@ -131,7 +161,7 @@ public class FileItemAdapter extends BaseAdapter
                 int a = ev.getAction();
                 switch(a){
                     case MotionEvent.ACTION_DOWN:
-                        v.setBackgroundColor(Color.parseColor("#30000000"));
+                        v.setBackgroundColor(Color.parseColor("#50cccccc"));
                         break;
                     default:
                         v.setBackgroundColor(Color.TRANSPARENT);

@@ -24,7 +24,6 @@ public class Tab implements
     View tabview;
     ListView list1;
     private FileItemAdapter adaptor;
-    List<String> backstack = new ArrayList<>();
     private TextView dirname;
     private MFile dir;
     boolean list1scrolling;
@@ -74,7 +73,6 @@ public class Tab implements
     
     private void loadDir(MFile fl){
         dir = fl;
-        backstack.add(dir.getParent());
         load(dir.getAbsolutePath());
         dirname.setText(dir.getAbsolutePath());
     }
@@ -89,7 +87,7 @@ public class Tab implements
         adaptor.update(path);
         TabSpooler.get().saveTab(this);
         dirname.setText(dir.getAbsolutePath());
-        list1.invalidate();
+        list1.setSelection(0);
     }
     
     public void reload(){
@@ -99,14 +97,6 @@ public class Tab implements
     
     public MFile getDir(){
         return dir;
-    }
-    
-    public List<String> getBackHistory(){
-        return backstack;
-    }
-    
-    public void setBackHistory(List<String> list){
-        backstack = list;
     }
 
     public long getId(){
@@ -148,12 +138,8 @@ public class Tab implements
     }
 
     public boolean goBack(){
-        if(!backstack.isEmpty()){
-            int li = backstack.size()-1;
-            String l = backstack.remove(li);
-            dir = new MFile(l);
-            dirname.setText(l);
-            load(l);
+        if(dir.getParentFile().canRead()){
+            load(dir.getParent());
             return true;
         }
         return false;
@@ -181,7 +167,6 @@ public class Tab implements
     }  
 
     public void destroy(){
-        backstack = null;
         //
     }
 

@@ -8,6 +8,7 @@ import sleepchild.fimi.tabs.Tab;
 
 import sleepchild.fimi.R;
 import sleepchild.fimi.*;
+import sleepchild.fimi.activity.*;
 
 public class TabOptionsDialog extends MDialog// implements View.OnClickListener
 {
@@ -51,9 +52,9 @@ public class TabOptionsDialog extends MDialog// implements View.OnClickListener
             case R.id.taboptionsmenu_exitapp:
                 act.finishAffinity();
                 break;
-            //case R.id.taboptionsmenu_settings:
-                //
-               // break;
+            case R.id.taboptionsmenu_settings:
+                act.startActivity(SettingsActivity.class);
+                break;
         }
         dismiss();
     }

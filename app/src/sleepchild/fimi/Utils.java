@@ -125,6 +125,28 @@ public class Utils {
     
     //*/
     
+    public static String getDirectoryInfo(File fl){
+        if(fl.isDirectory()){
+            int d=0;
+            int f=0;
+            for(File j : fl.listFiles()){
+                if(j.isFile()){
+                    f++;
+                }else{
+                    d++;
+                }
+            }
+            return d+(d==1 ? " folder, ":" folders, ") +f+ (f==1 ? " file":" files");
+            
+        }
+        return  "";
+    }
+    
+    public static String formatDate(File fl){
+        return new java.util.Date(fl.lastModified()).toLocaleString().toLowerCase();
+        //
+    }
+    
     public static boolean touch(String path, String text, boolean overwrite){
         try{
             if(overwrite==false && new File(path).exists()){
@@ -173,7 +195,20 @@ public class Utils {
         return (int) (dpValue * scale + 0.5f);
     }
     
+    public static String clean(String str){
+        String ret = str;
+        if(str.startsWith("file://")){
+            ret = str.substring(7);
+        }
+        ret = ret.replace("%20"," ").replace("%26","&");
+
+        return ret;
+    }
+    
     public static String readTextFile(String path){
+        if(path.startsWith("file://")){
+            path = path.substring(7);
+        }
         BufferedReader br = null;
         try
         {
@@ -197,6 +232,7 @@ public class Utils {
     public static void touch(String path, String data){
         touch(path, data.getBytes());
     }
+    
     public static void touch(String path, byte[] data){
         FileOutputStream o = null;
         try

@@ -10,6 +10,7 @@ public class ThemeManager
     private static ThemeManager deft;
     private static Theme ctheme;
 
+    private String tfindex;
     private File themeFile;
     private String dir;
 
@@ -58,15 +59,20 @@ public class ThemeManager
         }
         return ctheme;
     }
+    
 
     private Theme reloadTheme(){
-
+        getThemeFile();
         if(themeFile.exists()){
             ctheme = fromFile(themeFile.getAbsolutePath());
         }else{
             ctheme = newdefault(themeFile.getAbsolutePath());
         }
         return ctheme;
+    }
+    
+    void getThemeFile(){
+        
     }
 
     // note: to keep things in sync, this shud be the only method that performs a read on the themefile

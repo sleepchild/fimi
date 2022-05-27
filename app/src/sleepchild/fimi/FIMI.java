@@ -5,7 +5,6 @@ import android.graphics.drawable.*;
 import android.content.*;
 import android.graphics.*;
 import android.os.*;
-import sleepchild.fimi.io.*;
 
 public class FIMI
 {
@@ -87,7 +86,7 @@ public class FIMI
     
     public static int getIcon(MFile file){
         if(isAudio(file)){
-            return R.drawable.ic_audiotrack_grey600_24dp;
+            return R.drawable.ic_audio;
         }else if(isImage(file)){
             return R.drawable.ic_image_grey600_24dp;
         }else if(isVideo(file)){
@@ -160,7 +159,6 @@ public class FIMI
         FileInputStream in = null;
         FileOutputStream out = null;
         new File(topath).getParentFile().mkdirs();
-        Buffer buffer = new Buffer();
         
         try
         {

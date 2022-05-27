@@ -60,13 +60,13 @@ public class FileItemOptions extends MDialog
             case itm.COPY:
                 //
                 //act.showPicker();
-                FIMI.copyFile(file.getAbsolutePath(), "/sdcard/.sleepchild/fimi/testcopy/"+file.getName());
-                act.toast("file copied");
+                //FIMI.copyFile(file.getAbsolutePath(), "/sdcard/.sleepchild/fimi/testcopy/"+file.getName());
+                //act.toast("file copied");
                 break;
             case itm.MOVE:
-                FIMI.moveFile(file.getAbsolutePath(), "/sdcard/.sleepchild/fimi/testcopy/"+file.getName());
-                act.toast("file moved");
-                tab.reload();
+                //FIMI.moveFile(file.getAbsolutePath(), "/sdcard/.sleepchild/fimi/testcopy/"+file.getName());
+                //act.toast("file moved");
+                //tab.reload();
                 break;
             case itm.OPEN_NEW_TAB:
                 act.getTabManager().newTab(file.getAbsolutePath());
@@ -78,7 +78,7 @@ public class FileItemOptions extends MDialog
                 }
                 new ConfirmationDialog(act)
                     .setTitle("Are you sure to delete "+fd+"?")
-                    .setMessage(file.getName()+"\n- "+file.getAbsolutePath())
+                    .setMessage(file.getName())//+"\n- "+file.getAbsolutePath())
                     .positiveText("delete")
                     .onConfirm(new ConfirmationDialog.onConfirmListener(){
                         public void onConfirm(){

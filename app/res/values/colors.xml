@@ -11,6 +11,6 @@
     <color name="hline">#dcdcdc</color>
     
     <color name="currentTabBg">#000000</color>
-    <color name="currentTabText">#ffffff</color>
+    <color name="currentTabText">#00748E</color>
     
 </resources>

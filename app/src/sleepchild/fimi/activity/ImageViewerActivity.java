@@ -44,7 +44,7 @@ public class ImageViewerActivity extends BaseActivity
             ret = str.substring(7);
         }
         ret = ret.replace("%20"," ").replace("%26","&");
-        
+
         return ret;
     }
     

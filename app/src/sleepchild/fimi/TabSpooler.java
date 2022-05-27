@@ -25,7 +25,6 @@ public class TabSpooler
     private enum K{
         ID,
         LAST_PATH,
-        BACKSTACK,
         LAST_SHOWN_TAB,
     }
     
@@ -59,15 +58,6 @@ public class TabSpooler
             o.put(k(K.ID), tab.getId());
             o.put(k(K.LAST_PATH), tab.getDir().getAbsolutePath());
             
-            if(!tab.getBackHistory().isEmpty()){
-                JSONArray bs = new JSONArray();
-                for(String s : tab.getBackHistory()){
-                    bs.put(s);
-                }
-                o.put(k(K.BACKSTACK),bs);
-                
-            }
-            
             _write(fname, o.toString().getBytes());
             
         }catch (JSONException e){}
@@ -98,7 +88,6 @@ public class TabSpooler
     }
     
     
-    
     /////////////
     
     private Tab fileToTab(TabManager tmgr ,File fl){
@@ -111,25 +100,6 @@ public class TabSpooler
             
             String path = o.getString(k(K.LAST_PATH));
             long id = o.getLong(k(K.ID));
-            
-            
-            if(o.has(k(K.BACKSTACK))){
-                List<String> bs = new ArrayList<>();
-                JSONArray ar = o.getJSONArray(k(K.BACKSTACK));
-                if(ar!=null){
-                    int l = ar.length();
-                    for(int i = 0;i<l;i++){
-                        String str =  ar.getString(i);
-                        if(str!=null){
-                            bs.add(str);
-                        }
-                    }
-                    
-                    if(bs!=null && !bs.isEmpty()){
-                        tab.setBackHistory(bs);
-                    }
-                }
-            }
             
             tab.setId(id);
             tab.load(path);

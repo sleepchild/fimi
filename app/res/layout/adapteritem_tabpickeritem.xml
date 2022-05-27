@@ -45,10 +45,12 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/i1"
                 android:clickable="false"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:background="@drawable/ic_close"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_close"/>
 
         </LinearLayout>
         
